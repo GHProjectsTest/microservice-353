@@ -84,7 +84,7 @@ public class mensa extends RESTService {
 
       /**
    * 
-   * 
+   * getDishRatings
    *
    * 
    * @param id  a String
@@ -93,15 +93,15 @@ public class mensa extends RESTService {
    * 
    */
   @GET
-  @Path("/")
+  @Path("/dishes/{id}/ratings")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "ratings"),
        @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "dish_not_found")
   })
-  @ApiOperation(value = "", notes = " ")
-  public Response (@PathParam("id") String id) {
+  @ApiOperation(value = "getDishRatings", notes = " ")
+  public Response getDishRatings(@PathParam("id") String id) {
 
 
 
@@ -137,7 +137,7 @@ public class mensa extends RESTService {
 
   /**
    * 
-   * 
+   * postDishRating
    *
    * 
    * @param id  a String
@@ -148,7 +148,7 @@ public class mensa extends RESTService {
    * 
    */
   @GET
-  @Path("/")
+  @Path("/dishes/{id}/ratings")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @ApiResponses(value = {
@@ -156,8 +156,8 @@ public class mensa extends RESTService {
        @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "created_rating"),
        @ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "bad_request")
   })
-  @ApiOperation(value = "", notes = " ")
-  public Response (@PathParam("id") String id, String body) {
+  @ApiOperation(value = "postDishRating", notes = " ")
+  public Response postDishRating(@PathParam("id") String id, String body) {
    classes.Dish Rating payloadbodyObject = new classes().new Dish Rating();
    try { 
        payloadbodyObject.fromJSON(body);
